@@ -20,7 +20,7 @@
 1. Клонирование репозитория
 
 ```
-git clone <url_этого_репозитория>
+git clone https://github.com/Lacanekorin/mlops_hw1_Martirosova_Anastasia.git
 cd mlops_hw1_Martirosova_Anastasia
 ```
 2. Настройка окружения
