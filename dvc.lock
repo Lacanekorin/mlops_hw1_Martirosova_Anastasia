@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - path: data/raw/wine.csv
+      hash: md5
+      md5: e6dccd29b15c08636f50bd2c0fd80a6a
+      size: 12440
+    - path: params.yaml
+      hash: md5
+      md5: 74edc558fa4e42e4ed55fa8cb56ad764
+      size: 399
+    - path: src/prepare.py
+      hash: md5
+      md5: 9ab7467ce0f7b4c4f01e22cf0202d943
+      size: 1603
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: b56c0ec0573caff590177d03295a3a66.dir
+      size: 12618
+      nfiles: 2
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: b56c0ec0573caff590177d03295a3a66.dir
+      size: 12618
+      nfiles: 2
+    - path: params.yaml
+      hash: md5
+      md5: 74edc558fa4e42e4ed55fa8cb56ad764
+      size: 399
+    - path: src/train.py
+      hash: md5
+      md5: a5488b30fe448cf2726aa48e50c90f77
+      size: 3304
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 50584a87c06990ecf49a412f748fcdcf
+      size: 32
+    - path: model.pkl
+      hash: md5
+      md5: 9883a35c7c3fc106787a4c0f9a2a316e
+      size: 2433

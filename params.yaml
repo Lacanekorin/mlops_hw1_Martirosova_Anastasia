@@ -1,0 +1,8 @@
+prepare:
+  test_size: 0.2        # доля тестовых данных
+  random_state: 42      # фиксированный seed
+
+train:
+  C: 1.0                # параметр регуляризации для LogisticRegression
+  max_iter: 1000        # максимум итераций обучения
+  random_state: 42      # фиксированный seed для модели

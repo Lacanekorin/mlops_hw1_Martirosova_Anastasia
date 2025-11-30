@@ -1,24 +1,28 @@
-# Python cache
+#Python cache
 __pycache__/
 *.pyc
 
-# Virtual environment
+#Virtual environment
 .venv/
 
-# IDE
+#IDE
 .idea/
 .vscode/
 
-# DVC data (raw and processed)
+#DVC data (raw and processed)
 data/raw/wine.csv
 data/processed/
 
-# MLflow artifacts
+#MLflow artifacts
 mlruns/
 mlflow.db
 
-# DVC cache
+#DVC cache
 .dvc/cache/
 
-# OS junk
+#OS junk
 .DS_Store
+/model.pkl
+
+#Все файлы Jupyter
+*.ipynb
