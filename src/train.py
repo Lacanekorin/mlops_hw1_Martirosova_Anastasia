@@ -14,6 +14,8 @@ import mlflow
 import mlflow.sklearn
 
 def main():
+    #Задаем пользовательский адрес для MLflow
+    localhost = os.environ.get("CUSTOM_LOCALHOST", "localhost")
     #Загружаем параметры обучения из params.yaml
     with open("params.yaml", "r") as f:
         params = yaml.safe_load(f)
@@ -53,7 +55,7 @@ def main():
 
     #Настраиваем подключение к MLflow-серверу
 
-    mlflow.set_tracking_uri("http://localhost:5000")
+    mlflow.set_tracking_uri(f"http://{localhost}:5000")
 
     #Выбираем/создаем эксперимент с именем 'wine_classification_experiment'
     mlflow.set_experiment("wine_classification_experiment")

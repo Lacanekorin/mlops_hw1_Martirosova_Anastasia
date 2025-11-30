@@ -26,14 +26,35 @@ cd mlops_hw1_Martirosova_Anastasia
 2. Настройка окружения
 
 ```
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
-3. Загрузка данных из DVC
+3. (Опционально) для macOS предварительно нужно указать переменную окружения
 
 ```
-dvc pull
+export CUSTOM_LOCALHOST='127.0.0.1'
 ```
-4. Воспроизведение всего пайплайна
+4. Запустить MLflow UI
+
+```
+python -m mlflow ui --backend-store-uri sqlite:///mlflow.db --port 5000
+```
+
+После запуска перейти в браузере:
+
+**[http://localhost:5000](http://localhost:5000)**
+
+(для macOS адрес: **[http://127.0.0.1:5000](http://127.0.0.1:5000)**
+
+В MLflow доступны:
+
+* параметры модели (`C`, `max_iter`)
+* метрика `accuracy`
+* артефакт `model.pkl`
+* история экспериментов
+
+5. Загрузка данных и воспроизведение всего пайплайна
 
 ```
 dvc repro
@@ -72,21 +93,3 @@ metrics.json
 * логирует параметры, метрики и артефакты в **MLflow**
 
 
-# **4. UI MLflow**
-
-Для запуска MLflow UI:
-
-```
-python -m mlflow ui --backend-store-uri sqlite:///mlflow.db --port 5000
-```
-
-После запуска перейти в браузере:
-
-**[http://localhost:5000](http://localhost:5000)**
-
-В MLflow доступны:
-
-* параметры модели (`C`, `max_iter`)
-* метрика `accuracy`
-* артефакт `model.pkl`
-* история экспериментов
