@@ -1,4 +1,11 @@
 stages:
+  get_raw:
+    cmd: python src/get_raw_wine.py
+    deps:
+      - src/get_raw_wine.py
+    outs:
+      - data/raw/wine.csv
+
   prepare:
     cmd: python src/prepare.py
     deps:
