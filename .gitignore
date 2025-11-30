@@ -1,0 +1,24 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# IDE
+.idea/
+.vscode/
+
+# DVC data (raw and processed)
+data/raw/wine.csv
+data/processed/
+
+# MLflow artifacts
+mlruns/
+mlflow.db
+
+# DVC cache
+.dvc/cache/
+
+# OS junk
+.DS_Store
